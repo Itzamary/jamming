@@ -16,11 +16,14 @@ export class App extends React.Component{
   }
 
   addTrack(track) {
-    if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
+    console.log(this.state.playlistTracks)
+    if (this.state.playlistTracks.find((savedTrack) => savedTrack.id === track.id)) {
       return
+    } else {
+      this.state.playlistTracks.push(track);
     }
 
-    playlistTracks.push(track);
+    
   }
 
   render() {
@@ -30,7 +33,7 @@ export class App extends React.Component{
         <div className="App">
           < SearchBar />
           <div className="App-playlist">
-            < SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack()} />
+            < SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} />
             < Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} />
           </div>
         </div>
