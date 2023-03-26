@@ -8,7 +8,7 @@ export class App extends React.Component{
   constructor(props) {
     super(props);
     this.state = { 
-      searchResults: [{ name: 'yo Perrro sola', artist: 'Bad Bunny', album: 'PereeoLand', id: 1 }, { name: 'song1', artist: "artist1", album: 'album1', id: 2 }, { name: 'song2', artist: "artist2", album: 'album2', id: 3}],
+      searchResults: [{ name: 'yo Perrro sola', artist: 'Bad Bunny', album: 'PereeoLand', id: 11 }, { name: 'song1', artist: "artist1", album: 'album1', id: 22 }, { name: 'song2', artist: "artist2", album: 'album2', id: 33}],
       playlistName: 'myPlaylistName',
       playlistTracks: [ { name: 'name1', artist: 'artist1', album: 'album1', id: 1 }, { name: 'name2', artist: 'artist2', album: 'album2', id: 2 }, { name: 'name3', artist: 'artist3', album: 'album3', id: 3 }, { name: 'name4', artist: 'artist4', album: 'album4', id: 4 }]
     }
@@ -16,14 +16,12 @@ export class App extends React.Component{
   }
 
   addTrack(track) {
-    console.log(this.state.playlistTracks)
     if (this.state.playlistTracks.find((savedTrack) => savedTrack.id === track.id)) {
-      return
+      return;
     } else {
       this.state.playlistTracks.push(track);
+      this.setState({playlistTracks: this.state.playlistTracks});
     }
-
-    
   }
 
   render() {

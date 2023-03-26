@@ -10,8 +10,6 @@ export class TrackList extends React.Component {
             <div className='TrackList'>
                 {
                     this.props.tracks?.map((track) => {
-                        console.log(this.props.tracks);
-                        console.log(track, 'track');
                          return <Track track={track} key={track.id} onAdd={this.props.onAdd} />
                     })
                 }
